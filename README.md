@@ -1,6 +1,6 @@
 # Lexhub
 
-TODO: Write a gem description
+Find out your most commonly used words in commits, I guess.
 
 ## Installation
 
@@ -18,7 +18,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+You will need a Github Application registered with an auth token.
+
+TODO: This step might go away...
+
+```
+export GITHUB_API_TOKEN='...your token here...'
+```
+
+```ruby
+repo = Lexhub::Repo.new('github_username', 'repo_name')
+repo.commits #=> github.repos.commits.all
+```
+
+TODO: More to come...
 
 ## Contributing
 
