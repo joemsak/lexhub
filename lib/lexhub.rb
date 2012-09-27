@@ -1,4 +1,3 @@
-require 'active_support/all'
 require 'github_api'
 
 require 'lexhub/version'
