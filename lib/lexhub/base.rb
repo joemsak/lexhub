@@ -6,15 +6,14 @@ module Lexhub
     end
 
     private
-    def _collect_with(method)
-      _commits = []
+    def _collect(collection_method, api_method)
+      results = []
 
-      res = response(method)
-      res.each_page do |repo|
-        _commits += repo.collect(&:commit)
+      response(api_method).each_page do |page|
+        results += page.collect(&collection_method)
       end
 
-      _commits
+      results
     end
 
     def response(api_method)

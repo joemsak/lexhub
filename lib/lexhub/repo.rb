@@ -4,7 +4,7 @@ module Lexhub
     def commits
       @results ||= []
       return @results if @results.any?
-      @results = _collect_with('repos.commits.all')
+      @results = _collect(:commit, 'repos.commits.all')
     end
   end
 end
