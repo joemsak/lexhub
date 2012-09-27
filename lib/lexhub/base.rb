@@ -7,9 +7,9 @@ module Lexhub
 
     private
     def _collect(collection_method, api_method)
-      results = []
-
       begin
+        results = []
+
         response(api_method).each_page do |page|
           results += page.collect(&collection_method)
         end
