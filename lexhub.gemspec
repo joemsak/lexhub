@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Lexhub::VERSION
   gem.authors       = ["Joe Sak"]
   gem.email         = ["joe@joesak.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Hi Haters}
+  gem.summary       = %q{I'll do this in a bit okay}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
@@ -18,4 +18,8 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_development_dependency 'rspec'
+  gem.add_development_dependency 'vcr'
+  gem.add_development_dependency 'webmock'
+
+  gem.add_dependency 'github_api'
 end

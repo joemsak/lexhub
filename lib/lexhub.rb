@@ -1,5 +1,9 @@
+require 'github_api'
 require "lexhub/version"
+Dir.glob("lib/**/*.rb").each { |f| require [".", "/", f].join }
+
+GITHUB_AUTH_TOKEN = ENV['GITHUB_AUTH_TOKEN']
+GITHUB = Github.new(:oauth => GITHUB_AUTH_TOKEN)
 
 module Lexhub
-  # Your code goes here...
 end
