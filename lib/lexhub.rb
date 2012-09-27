@@ -1,5 +1,9 @@
+require 'active_support/all'
 require 'github_api'
-Dir.glob("lib/**/*.rb").each { |f| require [".", "/", f].join }
+
+require 'lexhub/version'
+require 'lexhub/base'
+require 'lexhub/repo'
 
 GITHUB_AUTH_TOKEN = ENV['GITHUB_AUTH_TOKEN']
 GITHUB = Github.new(:oauth => GITHUB_AUTH_TOKEN)
