@@ -9,11 +9,13 @@ module Lexhub
     def _collect(collection_method, api_method)
       results = []
 
-      response(api_method).each_page do |page|
-        results += page.collect(&collection_method)
+      begin
+        response(api_method).each_page do |page|
+          results += page.collect(&collection_method)
+        end
+      ensure
+        return results
       end
-
-      results
     end
 
     def response(api_method)
