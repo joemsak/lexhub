@@ -2,6 +2,8 @@
 
 Find out your most commonly used words in commits, I guess.
 
+"Documentation":http://joemsak.github.com/lexhub-docs/frames.html
+
 ## Installation
 
 Add this line to your application's Gemfile:
