@@ -30,7 +30,10 @@ export GITHUB_AUTH_TOKEN=abc123...
 
 ```ruby
 repo = Lexhub::Repo.new('github_username', 'repo_name')
-repo.commits #=> github.repos.commits.all
+
+repo.commits #=> same as using github api gem, .repos.commits.all
+repo.words   #=> all words from all commit messages
+
 ```
 
 TODO: More to come...
