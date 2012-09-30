@@ -43,5 +43,15 @@ module Lexhub
     def words
       @words ||= commits.collect(&:message).join(' ').split(' ')
     end
+
+    private
+    # Internal: Get a response from the Github API
+    #
+    # api_method - String Github method chain
+    #
+    # Returns the response from Github
+    def response(api_method)
+      @response ||= eval("GITHUB.#{api_method}(@username, @repo_name)")
+    end
   end
 end
