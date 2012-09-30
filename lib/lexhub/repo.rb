@@ -1,9 +1,11 @@
 module Lexhub
   # Wrapper for Github API Repo
   class Repo < Base
-    # Public: Gets/Sets the String username of the repo.
+    # Public: Gets/Sets the String username of the repo's owner.
+    attr_accessor :username
+
     # Public: Gets/Sets the String name of the repo.
-    attr_accessor :username, :name
+    attr_accessor :name
 
     # Public: Initialize a new Lexhub::Repo
     #
