@@ -6,7 +6,9 @@ Find out your most commonly used words in commits, I guess.
 
 Add this line to your application's Gemfile:
 
-    gem 'lexhub'
+```ruby
+gem 'lexhub'
+```
 
 And then execute:
 
