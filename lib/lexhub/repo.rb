@@ -43,14 +43,40 @@ module Lexhub
     # Examples
     #
     #   repo.words
-    #   # => ['a', 'bunch', 'of', 'words']
+    #   # => { 'a'    => { :count => 1 },
+    #          'word' => { :count => 3 } }
     #
-    # Returns Array all commit message words
+    # Returns Hash all commit message words with their count
     def words
-      @words ||= commits.collect(&:message).join(' ').split(' ')
+      return @words if defined?(@words)
+      keys   = downcased_commit_message_words
+      @words = counted_words(keys)
     end
 
     private
+    # Internal: Count the keys
+    #
+    # Returns Hash unique words with their counts
+    def counted_words(keys)
+      words = {}
+
+      keys.uniq.each do |k|
+        words[k] = { :count => keys.count(k) }
+      end
+
+      words
+    end
+
+    # Internal: Turn the commit messages into an array of words
+    #
+    # Returns Array downcased commit message words
+    def downcased_commit_message_words
+      commits.collect(&:message)
+             .join(' ')
+             .split(' ')
+             .map(&:downcase)
+    end
+
     # Internal: Get a response from the Github API
     #
     # api_method - String Github method chain
