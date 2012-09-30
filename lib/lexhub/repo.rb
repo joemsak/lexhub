@@ -21,7 +21,11 @@ module Lexhub
     #
     #   repo.commits
     #   # => [#<Hashie::Mash author=...>, #<Hashie::Mash author...>]
-    #   # (same as Github.new(...).repos.commits.all)
+    #
+    #   # same as if you had done:
+    #   #
+    #   # github = Github.new(:oauth_token => 'abc123...')
+    #   # github.repos.commits.all('joemsak', 'lexhub')
     #
     # Returns Array commits
     def commits
