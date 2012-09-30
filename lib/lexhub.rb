@@ -8,9 +8,19 @@ require 'lexhub/repo'
 # Find out the most common words in your commit messages
 module Lexhub
   class << self
+    # Public Gets/Sets Configuration configuration
     attr_accessor :configuration
   end
 
+  # Public: Configure the gem
+  #
+  # Examples
+  #
+  #   Lexhub.configure do |config|
+  #     config.oauth_token = '123abc'
+  #   end
+  #
+  # Returns Configuration object
   def self.configure
     self.configuration ||= Configuration.new
     yield(configuration) if block_given?
@@ -21,4 +31,7 @@ Lexhub.configure do |config|
   config.oauth_token = ENV['GITHUB_AUTH_TOKEN']
 end
 
+# Internal: Github API Object
+#
+# Returns Github object
 GITHUB = Github.new(:oauth_token => Lexhub.configuration.oauth_token)
