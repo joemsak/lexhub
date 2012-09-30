@@ -1,10 +1,5 @@
 module Lexhub
   class Base
-    def initialize(username, repo_name)
-      @username  = username
-      @repo_name = repo_name
-    end
-
     private
     def _collect(collection_method, api_method)
       results = []
