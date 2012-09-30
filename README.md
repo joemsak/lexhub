@@ -2,7 +2,7 @@
 
 Find out your most commonly used words in commits, I guess.
 
-"Documentation":http://joemsak.github.com/lexhub-docs/frames.html
+[Documentation](http://joemsak.github.com/lexhub-docs/frames.html)
 
 ## Installation
 
