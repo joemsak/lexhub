@@ -48,9 +48,7 @@ module Lexhub
     #
     # Returns Hash all commit message words with their count
     def words
-      return @words if defined?(@words)
-      keys   = downcased_commit_message_words
-      @words = counted_words(keys)
+      @words ||= counted_words(downcased_commit_message_words)
     end
 
     private
