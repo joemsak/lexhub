@@ -1,18 +1,22 @@
 module Lexhub
   # Wrapper for Github API Repo
   class Repo < Base
+    # Public: Gets/Sets the String username of the repo.
+    # Public: Gets/Sets the String name of the repo.
+    attr_accessor :username, :name
+
     # Public: Initialize a new Lexhub::Repo
     #
     # username  - the github username of the repo owner
-    # repo_name - the name of the repo
+    # name - the name of the repo
     #
     # Examples
     #
     #   repo = Lexhub::Repo.new('joemsak', 'lexhub')
     #
-    def initialize(username, repo_name)
+    def initialize(username, name)
       @username  = username
-      @repo_name = repo_name
+      @name      = name
     end
 
     # Public: Get the commits of the named repo
@@ -51,7 +55,7 @@ module Lexhub
     #
     # Returns the response from Github
     def response(api_method)
-      @response ||= eval("GITHUB.#{api_method}(@username, @repo_name)")
+      @response ||= eval("GITHUB.#{api_method}(username, name)")
     end
   end
 end
