@@ -2,6 +2,13 @@ module Lexhub
   # Base class for API interaction
   class Base
     private
+    # Internal: The Github object
+    #
+    # Returns Github object
+    def _github
+      Lexhub.configuration.github
+    end
+
     # Internal: Collect items from API endpoints
     #
     # collection_item - Symbol name of item to collect

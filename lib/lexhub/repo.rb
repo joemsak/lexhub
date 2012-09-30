@@ -81,7 +81,7 @@ module Lexhub
     #
     # Returns the response from Github
     def response(api_method)
-      @response ||= eval("GITHUB.#{api_method}(username, name)")
+      @response ||= eval("_github.#{api_method}(username, name)")
     end
   end
 end

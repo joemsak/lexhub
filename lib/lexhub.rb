@@ -29,9 +29,5 @@ end
 
 Lexhub.configure do |config|
   config.oauth_token = ENV['GITHUB_AUTH_TOKEN']
+  config.github      = Github.new(:oauth_token => config.oauth_token)
 end
-
-# Internal: Github API Object
-#
-# Returns Github object
-GITHUB = Github.new(:oauth_token => Lexhub.configuration.oauth_token)
