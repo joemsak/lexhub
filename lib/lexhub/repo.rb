@@ -51,6 +51,19 @@ module Lexhub
       @words ||= counted_words(downcased_commit_message_words)
     end
 
+    # Public: Show the most used words in commit messages
+    #
+    # Examples
+    #
+    #   repo.most_used_word
+    #   #=> ['Fuckbeans', 'sucks']
+    #
+    # Returns Array the most used words in your commit messages
+    def most_used_words
+      max_count = words.values.collect { |v| v[:count] }.max
+      words.select { |_, v| v[:count] == max_count }.keys
+    end
+
     private
     # Internal: Count the keys
     #
