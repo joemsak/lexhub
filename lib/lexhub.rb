@@ -10,20 +10,20 @@ module Lexhub
   class << self
     # Public Gets/Sets Configuration configuration
     attr_accessor :configuration
-  end
 
-  # Public: Configure the gem
-  #
-  # Examples
-  #
-  #   Lexhub.configure do |config|
-  #     config.oauth_token = '123abc'
-  #   end
-  #
-  # Returns Configuration object
-  def self.configure
-    self.configuration ||= Configuration.new
-    yield(configuration) if block_given?
+    # Public: Configure the gem
+    #
+    # Examples
+    #
+    #   Lexhub.configure do |config|
+    #     config.oauth_token = '123abc'
+    #   end
+    #
+    # Returns Configuration object
+    def configure
+      self.configuration ||= Configuration.new
+      yield(configuration) if block_given?
+    end
   end
 end
 
