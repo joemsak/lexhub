@@ -22,5 +22,12 @@ module Lexhub
 
       results
     end
+
+    # Internal: The excluded words in the configuration
+    #
+    # Returns Array words to be excluded from commit messages
+    def _excluded_words
+      Lexhub.configuration.excluded_words
+    end
   end
 end

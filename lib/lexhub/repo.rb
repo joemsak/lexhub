@@ -78,14 +78,25 @@ module Lexhub
       words
     end
 
-    # Internal: Turn the commit messages into an array of words
+    # Internal: Downcase the commit message words
     #
     # Returns Array downcased commit message words
     def downcased_commit_message_words
-      commits.collect(&:message)
-             .join(' ')
-             .split(' ')
-             .map(&:downcase)
+      sanitized_message_words.map(&:downcase)
+    end
+
+    # Internal: Sanitize excluded words from commit messages
+    #
+    # Returns Array sanitized commit message words
+    def sanitized_message_words
+      commit_message_words.reject { |w| _excluded_words.include?(w) }
+    end
+
+    # Internal: Collect words from commit messages
+    #
+    # Returns Array commit message words
+    def commit_message_words
+      commits.collect(&:message).join(' ').split(' ')
     end
 
     # Internal: Get a response from the Github API
